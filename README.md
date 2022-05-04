@@ -98,5 +98,5 @@ Help
 
 ## Check on Rinkeby Explorer
 
-- [NFTMint](https://rinkeby.etherscan.io/address/)
-- [Marketplace](https://rinkeby.etherscan.io/address/)
+- [NFTMint](https://rinkeby.etherscan.io/address/0x05142BC1505B168a54739aA19C53e820Ac47904D)
+- [Marketplace](https://rinkeby.etherscan.io/address/0xDD8B940180c0d97EcB2B1c71096573784191d1D1)
