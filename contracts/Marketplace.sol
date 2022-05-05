@@ -7,6 +7,11 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/token/ERC1155/IERC1155.sol";
 import "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol";
 
+    /// @title A NFT Marketplace using ERC1155
+    /// @author Karan J Goraniya
+    /// @notice You can use this contract to list NFT on Marketplace
+    /// @dev All function calls are currently implemented without side effects
+
 contract  Marketplace is ERC1155Holder {
 
     using Counters for Counters.Counter;
@@ -34,6 +39,8 @@ contract  Marketplace is ERC1155Holder {
 
     mapping(uint256 => NFTMarketItem) private marketItem;
 
+    /// @notice It will list the NFT to marketplace.
+    /// @dev It will list NFT minted from MFTMint contract.        
     function listNft(uint256 nftId,uint256 amount, uint256 price, uint256 royalty) public {
 
         require(nftId > 0, "Token doesnot exist");
@@ -58,6 +65,8 @@ contract  Marketplace is ERC1155Holder {
     }
 
    
+    /// @notice It will buy the NFT from marketplace.
+    /// @dev User will able to buy NFT and transfer to respectively owner or user and platform fees, roylty fees also deducted          from this function.
 
     function buyNFT(uint256 tokenId, uint256 amount) public payable {
         uint256 price = marketItem[tokenId].price ;
