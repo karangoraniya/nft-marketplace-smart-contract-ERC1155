@@ -1,15 +1,102 @@
-# Basic Sample Hardhat Project
+# NFT-Marketplace-Smart-Contract
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+NFT-MArketplace Smart Contract users can set royalty of NFT, buy with ERC20 token & 2.5% platform fees.
 
-Try running some of the following tasks:
+## Important Step
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
+```bash
+create .env file in root directory.
 ```
+
+```bash
+    API_URL = "https://eth-ropsten.alchemyapi.io/v2/your-api-key"
+    PRIVATE_KEY = "YOUR-METAMASK-PRIVATE_KEY"
+    ETHERSCAN_API_KEY = "YOUR-ETHERSCAN_API_KEY"
+
+```
+
+-Get Your API Key
+
+- [Alchemy](https://alchemy.com/?r=36af7883c4699196)
+
+-Get Your Rinkeby Faucet
+
+- [Rinkeby Faucet](https://faucets.chain.link/rinkeby)
+
+## NPM Packages
+
+- [Openzeppelin](https://www.npmjs.com/package/@openzeppelin/contracts)
+- [Hardhat-Ethers](https://www.npmjs.com/package/hardhat-ethers)
+- [Chai](https://www.npmjs.com/package/chai)
+- [Ethers](https://www.npmjs.com/package/ethers)
+- [Ethereum-Waffle](https://www.npmjs.com/package/ethereum-waffle)
+- [Dotenv](https://www.npmjs.com/package/dotenv)
+- [Hardhat-Etherscan](https://www.npmjs.com/package/hardhat-etherscan)
+
+## Tech Stack
+
+- [Node](https://nodejs.org/en/)
+- [Hardhat](https://hardhat.org/)
+- [Solidity](https://docs.soliditylang.org/)
+- [Openzeppelin](https://openzeppelin.com/)
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/karangorania/nft-marketplace-smart-contract-
+```
+
+Go to the project directory
+
+```bash
+  cd nft-marketplace-smart-contract-
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Compile
+
+```bash
+  npx hardhat compile
+```
+
+Test
+
+```bash
+  npx hardhat test
+```
+
+Deploy
+
+```bash
+  node scripts/deploy.js
+```
+
+Deploy on Rinkeby
+
+```bash
+  npx hardhat run scripts/deploy.js --network rinkeby
+```
+
+Verify Contract
+
+```bash
+npx hardhat verify --network rinkeby <YOUR_CONTRACT_ADDRESS>
+```
+
+Help
+
+```bash
+  npx hardhat help
+```
+
+## Check on Rinkeby Explorer
+
+- [NFTMint](https://rinkeby.etherscan.io/address/0x05142BC1505B168a54739aA19C53e820Ac47904D)
+- [Marketplace](https://rinkeby.etherscan.io/address/0xDD8B940180c0d97EcB2B1c71096573784191d1D1)
