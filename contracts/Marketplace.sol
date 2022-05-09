@@ -18,7 +18,7 @@ contract  Marketplace is ERC1155Holder {
     Counters.Counter private _tokenIds;
     Counters.Counter private _nftSold;
     IERC1155 private nftContract;
-    address owner;
+    address private owner;
     uint256 private platformFee = 25;
     uint256 private deno = 1000;
 
