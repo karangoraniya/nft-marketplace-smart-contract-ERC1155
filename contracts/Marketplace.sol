@@ -17,10 +17,10 @@ contract  Marketplace is ERC1155Holder {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
     Counters.Counter private _nftSold;
-    IERC1155 public nftContract;
+    IERC1155 private nftContract;
     address owner;
-    uint256 public platformFee = 25;
-    uint256 public deno = 1000;
+    uint256 private platformFee = 25;
+    uint256 private deno = 1000;
 
     constructor(address _nftContract) {
         nftContract = IERC1155(_nftContract);
@@ -41,7 +41,7 @@ contract  Marketplace is ERC1155Holder {
 
     /// @notice It will list the NFT to marketplace.
     /// @dev It will list NFT minted from MFTMint contract.        
-    function listNft(uint256 nftId,uint256 amount, uint256 price, uint256 royalty) public {
+    function listNft(uint256 nftId,uint256 amount, uint256 price, uint256 royalty) external {
 
         require(nftId > 0, "Token doesnot exist");
         require(royalty >= 0, 'royalty should be between 0 to 30');
@@ -68,7 +68,7 @@ contract  Marketplace is ERC1155Holder {
     /// @notice It will buy the NFT from marketplace.
     /// @dev User will able to buy NFT and transfer to respectively owner or user and platform fees, roylty fees also deducted          from this function.
 
-    function buyNFT(uint256 tokenId, uint256 amount) public payable {
+    function buyNFT(uint256 tokenId, uint256 amount) external payable {
         uint256 price = marketItem[tokenId].price ;
         uint256 royaltyPer = price * marketItem[tokenId].royalty / deno;
         uint256 marketFee = price * platformFee / deno;

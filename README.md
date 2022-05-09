@@ -45,7 +45,7 @@ create .env file in root directory.
 Clone the project
 
 ```bash
-  git clone https://github.com/karangorania/nft-marketplace-smart-contract-
+  git clone https://github.com/karangorania/nft-marketplace-smart-contract-ERC1155
 ```
 
 Go to the project directory
