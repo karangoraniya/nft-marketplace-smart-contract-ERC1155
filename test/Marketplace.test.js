@@ -15,24 +15,30 @@ describe('NFTMint', function () {
     await marketplace.deployed();
     marketplaceAddress = marketplace.address;
 
-    await nftMint.mint(1, 24);
+    await nftMint.connect(owner).mint(1, 2000);
 
-    await nftMint.setApprovalForAll(marketplaceAddress, true);
-    await nftMint.balanceOf(marketplaceAddress, 1);
+    expect(await nftMint.balanceOf(owner.address, 1)).to.be.equal(2000);
 
-    listNFT = await marketplace.listNft(1, 24, 234, 11);
-    await nftMint.balanceOf(marketplaceAddress, 1);
+    await nftMint.connect(addr1).setApprovalForAll(marketplaceAddress, true);
+    await nftMint.connect(addr2).setApprovalForAll(marketplaceAddress, true);
+    await nftMint.connect(owner).setApprovalForAll(marketplaceAddress, true);
 
-    await nftMint.setApprovalForAll(marketplaceAddress, true);
-    // await marketplace.buyNFT(1, 5);
-    // await marketplace.onERC1155Received(
-    //   address(this),
-    //   msg.sender,
-    //   tokenId,
-    //   amount,
-    //   ''
-    // );
-    // buyNFT1 = await marketplace.buyNFT(1, 24);
-    // await marketplace.buyNFT(1, 24);
+    listNFT = await marketplace.connect(owner).listNft(1, 44, 14, 4);
+
+    // const ownerAmount = await nftMint.balanceOf(owner.address, 0);
+    // console.log(ownerAmount);
+
+    await nftMint.safeTransferFrom(
+      owner.address,
+      addr2.address,
+      0,
+      14000,
+      '0x00'
+    );
+
+    // const addr1Amount = await nftMint.balanceOf(addr2.address, 1);
+    // console.log(addr1Amount);
+
+    buyNFT1 = await marketplace.connect(addr2).buyNFT(1, 14);
   });
 });
