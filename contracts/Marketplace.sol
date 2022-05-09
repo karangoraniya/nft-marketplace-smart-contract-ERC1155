@@ -82,7 +82,7 @@ contract  Marketplace is ERC1155Holder {
         _nftSold.increment();
 
         onERC1155Received(address(this), msg.sender, tokenId, amount, "");
-        nftContract.safeTransferFrom(msg.sender, address(this), tokenId, 1, "");
+        nftContract.safeTransferFrom(address(this), msg.sender, tokenId, 1, "");
 
 
     }
